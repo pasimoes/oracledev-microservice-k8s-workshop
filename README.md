@@ -26,7 +26,9 @@ In the case of a commit to master, Wercker runs a pipeline and builds the image,
 
 In this section, you create a Wercker application of a GitHub application.
 
-1. Login to your GitHub account. Open the application wercker-oke-demo in Github and click **Fork**.
+1. Login to your GitHub account. Open the application helidon-quickstart-se in Github and click **Fork**.
+
+    Link: https://github.com/pasimoes/helidon-quickstart-se
 
 2. Select the *wercker.yml* file to open it.
 
@@ -39,7 +41,7 @@ In this section, you create a Wercker application of a GitHub application.
 
 5. Make sure your user is selected for #1 and GitHub is selected for #2 and click **Next**.
 
-6. Select the `wercker-oke-demo` application you previously forked and click **Next**.
+6. Select the `helidon-quickstart-se` application you previously forked and click **Next**.
 
 7. Accept the default to checkout the code and click **Next**.
 
