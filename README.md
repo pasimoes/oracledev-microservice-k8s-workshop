@@ -20,28 +20,36 @@ In the case of a commit to master, Wercker runs a pipeline and builds the image,
 
 •	Wercker Account
 
-•	OKE Account (provided by the instructor)
+> *[Workshop parameters](workshop-data.md)*
 
-## Create Wercker application
+
+## Clone Helidon Microservice application
 
 In this section, you create a Wercker application of a GitHub application.
 
-1. Login to your GitHub account. Open the application helidon-quickstart-se in Github and click **Fork**.
+1. Login to your GitHub account. Open the application *[Helidon Microservice](https://github.com/pasimoes/helidon-quickstart-se)* in Github and click **Fork**.
 
-    Link: https://github.com/pasimoes/helidon-quickstart-se
+2. Adjust Application Name on following files:
 
-2. Select the *wercker.yml* file to open it.
+    Where ```quickstart-se``` include your number, for example ```quickstart-se01```
+    - kubernetes_deployment.yml.template
+    - kubernetes_service.yml.template
+    - wercker.yml
+    
+3. Select the *wercker.yml* file to open it.
 
-3. Any Docker Image created by the Wercker application will be tagged with the corresponding Git commit that triggered its run. This is a Wercker best practice that ensures a given revision of your source is included in a known single artifact image. This aids in observability as well as making it easy to point Kubernetes at new changes to the application. The environment variables that need to be passed to Wercker will be:
+4. Any Docker Image created by the Wercker application will be tagged with the corresponding Git commit that triggered its run. This is a Wercker best practice that ensures a given revision of your source is included in a known single artifact image. This aids in observability as well as making it easy to point Kubernetes at new changes to the application. The environment variables that need to be passed to Wercker will be:
     - DOCKER_USERNAME
     - DOCKER_PASSWORD
     - DOCKER_REPO
+
+## Create Wercker application
 
 4. Open and login to your Wercker account. Click **Create your first application**.
 
 5. Make sure your user is selected for #1 and GitHub is selected for #2 and click **Next**.
 
-6. Select the `helidon-quickstart-se` application you previously forked and click **Next**.
+6. Select the ```helidon-quickstart-se``` application you previously forked and click **Next**.
 
 7. Accept the default to checkout the code and click **Next**.
 
@@ -128,12 +136,22 @@ The pipeline automatically starts when you make a change to one of your applicat
 
 You can verify the service by running the app in OCI Container Engine for Kubernetes .
 
+>   Access from Container Native Terminal on OCI.
+>
+>   For participants that don't have OCI Cli and Kubectl installed, we prepared some *Container Native Terminals*. 
+>   
+>   $ ssh opc@``<node-address>`` -i ``<ssh-key>``
+>   [opc@oracledev ~]$
+>
+
+
 1. From your terminal window, execute the following:
 
     ```
     export KUBECONFIG=~/kubeconfig
     kubectl get services
     ```
+
 
 2. Paste the value for EXTERNAL-IP into your browser to run the application.
 
