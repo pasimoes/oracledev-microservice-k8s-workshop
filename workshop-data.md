@@ -5,9 +5,9 @@
 | Parameter                    | Value |
 | ---------------------------- | -------------------------------------------- |
 | Helidon Microservice Project | *[Helidon Microservice](https://github.com/pasimoes/helidon-quickstart-se)* |
-| DOCKER_USERNAME              | <domain/username>                            |
+| DOCKER_USERNAME              | <OCI_DOMAIN/USERNAME>                            |
 | DOCKER_PASSWORD              | <OKE_USER_PASSWORD>                                 |
-| DOCKER_REPO                  | <OCIR_REGION>.ocir.io/<domain>/``<your user>``-repo   |
+| DOCKER_REPO                  | <OCIR_REGION>.ocir.io/<OCI_DOMAIN>/``<your user>``-repo   |
 | OKE_IMAGESECRET              | <OKE_IMGSECRET>                              |
 | OKE_MASTER                   | <OKE_CLUSTER_MASTER_ENDPOINT>                |
 | OKE_TOKEN                    | <OKE_TOKEN>                                  |
