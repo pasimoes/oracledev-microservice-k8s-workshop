@@ -133,7 +133,7 @@ In order for the images to pulled during deployment, you need to configure the c
 
 ## Add Workflow to Pipeline in Wercker Application
 
-To deploy the OCI Engine for Kubernetes (OKE), you need to create a ```Deploy-to-Kubernetes``` workflow in your Wercker application.
+To deploy the OCI Container Engine for Kubernetes (OKE), you need to create a ```Deploy-to-Kubernetes``` workflow in your Wercker application.
 
 1. Switch to your Wercker application and on the **Workflows** tab. Click Add *New Pipeline*.
 
@@ -149,9 +149,78 @@ To deploy the OCI Engine for Kubernetes (OKE), you need to create a ```Deploy-to
 
 ![Wercker Workflow Exec Pipeline](resources/images/wercker-exec-pipeline-config.png)
 
+![Wercker Workflow Exec Pipeline Config](resources/images/wercker-exec-pipeline-config-02.png)
+
 5. The new change in the workflow was created successfully. In the next section, you deploy the OCI image to kubernetes.
 
 ## Deploy the OCI Container to OCI Container Engine for Kubernetes
+
+1. Switch to **Runs** tab. Click on the last **build** pipeline to show its execution. On **Actions** button Click ```deploy-to-kubernetes```
+The deployment pipeline starts and perform the deployment of the container to OKE.
+
+![Wercker Deploy Pipeline](resources/images/wercker-run-deploy.png)
+
+![Wercker Deploy Pipeline Execution](resources/images/wercker-deploy-k8s-01.png)
+
+2. Your deployment completed successfully.
+
+![Wercker Deploy Pipeline Execution Successful 02](resources/images/wercker-deploy-k8s-02.png)
+
+![Wercker Deploy Pipeline Execution Successful 03](resources/images/wercker-deploy-k8s-03.png)
+
+![Wercker Deploy Pipeline Execution Successful 04](resources/images/wercker-deploy-k8s-04.png)
+
+## Verifying Service in OCI Container Engine for Kubernetes
+
+You can verify the service by running the app in OCI Container Engine for Kubernetes .
+
+>   Access from Container Native Terminal on OCI.
+>
+>   For participants that don't have OCI Cli and Kubectl installed, we prepared some *Container Native Terminals*. 
+>   
+>   $ ssh opc@``<node-address>`` -i ``<ssh-key>``
+>   [opc@oracledev ~]$
+>
+
+
+1. From your terminal window, execute the following:
+
+    ```
+    export KUBECONFIG=~/kubeconfig
+    kubectl get services
+    ```
+
+
+2. Paste the value for EXTERNAL-IP into your browser to run the application.
+
+3. Assemble the url to access the helloworld application, in the form ``http://<node-address>:<port-number>``. Obtain the values of ``<node-address>`` and ``<port-number>`` from the Kubernetes Dashboard as follows:
+
+    - To find out the ``<node-address>``, consult information about the pod running the **quickstart-se** app, and obtain the address of the node running it from the NODE column. For example, 132.145.140.4.
+    ```
+        $ kubectl get pods --output=wide
+        NAME                                    READY   STATUS    RESTARTS   AGE   IP            NODE
+        hello-k8s-deployment-6dcbb9998b-jps7d   1/1     Running   0          8d    10.244.1.2    132.145.140.4
+        quickstart-se-7bcfd74777-8rt4b          1/1     Running   0          1h    10.244.1.11   132.145.140.4
+    ```
+    
+![kubectl show pods](resources/images/kubectl-pods-01.png)
+
+    - To find out the ``<port-number>``, consult information about the **quickstart-se**, and obtain the port that the service is running on from the PORT(S) column. For example, port 30151.
+    ```
+        $ kubectl get services quickstart-se
+        NAME            TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+        quickstart-se   NodePort   10.96.137.252   <none>        8090:30151/TCP   1h
+    ```
+![kubectl show service details](resources/images/kubectl-service-details.png)
+
+4. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:30151/greet/Larry 
+
+    When the browser loads the page, the page shows a message like:
+    `{"message":"Hello Larry!"}`
+
+![microservice running 01](resources/images/helidon-microservice-running-01.png)
+
+## Now let's practice Continuous Delivery
 
 The pipeline automatically starts when you make a change to one of your application files in GitHub.
 
