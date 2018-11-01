@@ -213,7 +213,7 @@ You can verify the service by running the app in OCI Container Engine for Kubern
     ```
 ![kubectl show service details](resources/images/kubectl-service-details.png)
 
-4. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:30151/greet 
+4. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:31030/greet 
 
     When the browser loads the page, the page shows a message like:
     `{"message":"Hello World!"}`
@@ -248,7 +248,7 @@ The pipeline automatically starts when you make a change to one of your applicat
 
     - Scroll to the bottom to verify that all the steps completed successfully.
 
-6. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:30151/greet
+6. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:31030/greet
 
     When the browser loads the page, the page shows a message like:
     `{"message":"Hello Brasil!"}`
