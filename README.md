@@ -79,19 +79,29 @@ In this section, you create a Wercker application of a GitHub application.
 
 9. Your application was created successfully. In the next section, you define the environment variables. Click the **Environment** tab.
 
+![Wercker Define Environment Variables](resources/images/wercker-env-01.png)
+
 ## Set Application Environment Variables
 
 1. Create each of the following environment variables and click Add after each one.
 
-    - Docker Username must include the `<tenancy name>/<username>`
-    - Docker Password is the `auth_token` for your cluster. Click **Protected** checkbox. NOTE: It must not contain a `$` character.
-    - Docker Repo must include `<region-code>.ocir.io/<tenancy name>/<registry name>`
+    - OCI Registry Username must include the `<tenancy name>/<username>`
+    - OCI Registry Password is the `auth_token` for your cluster. Click **Protected** checkbox. NOTE: It must not contain a `$` character.
+    - OCI Registry Repo must include `<region-code>.ocir.io/<tenancy name>/<registry name>`
+    - OCI Registry Address
     When done, click the **Run** tab.
 
-2. Test that the application can be built and pushed to OCIR. Click the **trigger a build now** link at the bottom of the page.
+![Wercker Define Environment Variables](resources/images/wercker-env-02.png)
+
+2. Test that the application can be built and pushed to OCIR. Navigate to **Runs** tab and Click the **trigger a build now** link at the bottom of the page.
+
+![Wercker Run 01](resources/images/wercker-runs-01.png)
+
+![Wercker Run 02](resources/images/wercker-runs-02.png)
 
 3. The build is completed successfully.
 
+![Wercker Run 03](resources/images/wercker-runs-03.png)
 
 ## Configure Cluster to Pull Images from OCI Registry
 
