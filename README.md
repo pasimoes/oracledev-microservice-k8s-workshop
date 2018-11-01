@@ -1,4 +1,4 @@
-# Oracle Developer Workshop - Microservice Helidon CD with Oracle Pipeline and Oracle Engine for Kubernetes (OKE)
+# Oracle Cloud Developer Workshop - Microservice Helidon CD with Oracle Pipeline and Oracle Engine for Kubernetes (OKE)
 
 ## Before You Begin
 
