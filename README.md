@@ -19,6 +19,7 @@ In the case of a commit to master, Wercker runs a pipeline and builds the image,
 •	GitHub Account
 
 •	Wercker Account
+    *[Wercker App](https://app.wercker.com)*
 
 > *[Workshop parameters](workshop-data.md)*
 
@@ -44,26 +45,37 @@ In this section, you create a Wercker application of a GitHub application.
 
     - wercker.yml
     
-    ![Adjust on Wercker yml](resources/images/kubernetes-service-yml-template-adjust.png)
+    ![Adjust on Wercker yml](resources/images/wercker-yml-adjust.png)
     
 3. Select the *wercker.yml* file to open it.
 
 4. Any Docker Image created by the Wercker application will be tagged with the corresponding Git commit that triggered its run. This is a Wercker best practice that ensures a given revision of your source is included in a known single artifact image. This aids in observability as well as making it easy to point Kubernetes at new changes to the application. The environment variables that need to be passed to Wercker will be:
-    - DOCKER_USERNAME
-    - DOCKER_PASSWORD
-    - DOCKER_REPO
+    - OCIR_USERNAME
+    - OCIR_PASSWORD
+    - OCIR_REPO
+    - OCIR_ADDR
 
 ## Create Wercker application
 
-4. Open and login to your Wercker account. Click **Create your first application**.
+4. Open and login to your Wercker account. Click on ```+``` option and choose **Add application** .
+
+![Wercker Add Application](resources/images/wercker-add-app.png)
 
 5. Make sure your user is selected for #1 and GitHub is selected for #2 and click **Next**.
 
+![Wercker Create New Application Step 1](resources/images/wercker-createapp-step1.png)
+
 6. Select the ```helidon-quickstart-se``` application you previously forked and click **Next**.
+
+![Wercker Create New Application Step 2](resources/images/wercker-createapp-step2.png)
 
 7. Accept the default to checkout the code and click **Next**.
 
+![Wercker Create New Application Step 3](resources/images/wercker-createapp-step3.png)
+
 8. Click **Create**.
+
+![Wercker Create New Application Step 4](resources/images/wercker-createapp-step4.png)
 
 9. Your application was created successfully. In the next section, you define the environment variables. Click the **Environment** tab.
 
