@@ -5,11 +5,11 @@
 | Parameter                    | Value                                                     |
 | ---------------------------- | --------------------------------------------------------- |
 | Helidon Microservice Project | *[Helidon Microservice](https://github.com/pasimoes/helidon-quickstart-se)* |
-| OCIR_USERNAME                | `<tenancy name>/<username>`                               |
-| OCIR_PASSWORD                | <OKE_USER_PASSWORD>                                       |
+| OCIR_USERNAME                | `<tenancy name>/<oke_username>`                           |
+| OCIR_PASSWORD                | `<oke_password>`                                          |
 | OCIR_REPO                    | `<region-code>.ocir.io/<tenancy name>/<registry name>`    |
 | OCIR_ADDR                    | `https://<region-code>.ocir.io/v2`                        | 
-| OKE_IMAGESECRET              | <OKE_IMGSECRET>                                           |
-| OKE_MASTER                   | <OKE_CLUSTER_MASTER_ENDPOINT>                             |
-| OKE_TOKEN                    | <OKE_TOKEN>                                               |
+| OKE_IMAGESECRET              | `<oke imgsecret>`                                         |
+| OKE_MASTER                   | `<oke cluster master endpoint>`                           |
+| OKE_TOKEN                    | `<oke token>`                                             |
 
