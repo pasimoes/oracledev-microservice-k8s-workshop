@@ -213,77 +213,46 @@ You can verify the service by running the app in OCI Container Engine for Kubern
     ```
 ![kubectl show service details](resources/images/kubectl-service-details.png)
 
-4. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:30151/greet/Larry 
+4. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:30151/greet 
 
     When the browser loads the page, the page shows a message like:
-    `{"message":"Hello Larry!"}`
+    `{"message":"Hello World!"}`
 
-![microservice running 01](resources/images/helidon-microservice-running-01.png)
+![microservice running 01](resources/images/helidon-microservice-running-02.png)
 
 ## Now let's practice Continuous Delivery
 
 The pipeline automatically starts when you make a change to one of your application files in GitHub.
 
-1. Switch to your GitHub application and select the **werker.yml** file.
+1. Switch to your GitHub application and select the **GreetService.java** file.
+
+![helidon update 01](resources/images/helidon-GreetService-java-01.png)
 
 2. Edit the file.
 
-3. Scroll down to the set deployment timeout area and change the timeout to *300* seconds to make sure there is enough time to complete the deployment. Enter a description for commit and click **Commit changes**.
+3. Scroll down to the ```getDefaultMessage```method and change the word "World" to **your message**. Enter a description for commit and click **Commit changes**.
+
+![helidon update 02](resources/images/helidon-GreetService-java-02.png)
+
+![helidon update 03](resources/images/helidon-GreetService-java-03.png)
 
 4. Your change was commited. Switch to Wercker and click the **Runs** tab.
 
     - Note that the pipeline was executed automatically.
+    
+    ![helidon update 04](resources/images/wercker-building-GreetService-01.png)
+    
     - After the build completes the deploy workflow runs.
 
 5. Your deployment completed successfully. Click **deploy-to-kubernetes** to view the details.
 
     - Scroll to the bottom to verify that all the steps completed successfully.
-    - Switch to Wercker and click the **Runs** tab.
 
-## Verifying Service in OCI Container Engine for Kubernetes
-
-You can verify the service by running the app in OCI Container Engine for Kubernetes .
-
->   Access from Container Native Terminal on OCI.
->
->   For participants that don't have OCI Cli and Kubectl installed, we prepared some *Container Native Terminals*. 
->   
->   $ ssh opc@``<node-address>`` -i ``<ssh-key>``
->   [opc@oracledev ~]$
->
-
-
-1. From your terminal window, execute the following:
-
-    ```
-    export KUBECONFIG=~/kubeconfig
-    kubectl get services
-    ```
-
-
-2. Paste the value for EXTERNAL-IP into your browser to run the application.
-
-3. Assemble the url to access the helloworld application, in the form ``http://<node-address>:<port-number>``. Obtain the values of ``<node-address>`` and ``<port-number>`` from the Kubernetes Dashboard as follows:
-
-    - To find out the ``<node-address>``, consult information about the pod running the **quickstart-se** app, and obtain the address of the node running it from the NODE column. For example, 132.145.140.4.
-    ```
-        $ kubectl get pods --output=wide
-        NAME                                    READY   STATUS    RESTARTS   AGE   IP            NODE
-        hello-k8s-deployment-6dcbb9998b-jps7d   1/1     Running   0          8d    10.244.1.2    132.145.140.4
-        quickstart-se-7bcfd74777-8rt4b          1/1     Running   0          1h    10.244.1.11   132.145.140.4
-    ```
-
-    - To find out the ``<port-number>``, consult information about the **quickstart-se**, and obtain the port that the service is running on from the PORT(S) column. For example, port 30151.
-    ```
-        $ kubectl get services quickstart-se
-        NAME            TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-        quickstart-se   NodePort   10.96.137.252   <none>        8090:30151/TCP   1h
-    ```
-
-4. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:30151/greet/Larry 
+6. Open a new browser window and enter the url to access the **quickstart-se** application in the browser's URL field. For example, the full url might look like http://132.145.140.4:30151/greet
 
     When the browser loads the page, the page shows a message like:
-    `{"message":"Hello Larry!"}`
+    `{"message":"Hello Brasil!"}`
 
+![microservice running 03](resources/images/helidon-microservice-running-03.png)
 
 Congratulations! You've successfully deployed the **Helidon Quick Start** Microservice onto a node in the new cluster, and verified that the application is working as expected.
