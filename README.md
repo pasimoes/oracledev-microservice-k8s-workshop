@@ -29,12 +29,22 @@ In this section, you create a Wercker application of a GitHub application.
 
 1. Login to your GitHub account. Open the application *[Helidon Microservice](https://github.com/pasimoes/helidon-quickstart-se)* in Github and click **Fork**.
 
+![Helidon QuickStart SE Project Fork](resources/images/helidon-quickstart-se-fork.png)
+
 2. Adjust Application Name on following files:
 
-    Where ```quickstart-se``` include your number, for example ```quickstart-se01```
+    Where ```quickstart-se``` include your participant number, for example ```quickstart-se01```
     - kubernetes_deployment.yml.template
+    
+    ![Adjust on K8s Deployment Template](resources/images/kubernetes-deployment-yml-template-adjust.png)
+    
     - kubernetes_service.yml.template
+
+    ![Adjust on K8s Service Template](resources/images/kubernetes-service-yml-template-adjust.png)
+
     - wercker.yml
+    
+    ![Adjust on Wercker yml](resources/images/kubernetes-service-yml-template-adjust.png)
     
 3. Select the *wercker.yml* file to open it.
 
