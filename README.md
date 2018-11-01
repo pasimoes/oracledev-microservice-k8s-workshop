@@ -115,34 +115,41 @@ In order for the images to pulled during deployment, you need to configure the c
 
 3. Enter the Key ``OKE_IMAGESECRET`` and Value `<secret name>` and click **Add**.
 
-4. To review the script when a deploy to kubernetes is performed, switch to GitHub and open the ```wercker.yml``` file.
-
-5. Scroll to to the ```deploy-to-kubernetes``` area. The first step is that all the .template extensions are removed. Then it will move all the Kubernetes configuration files to a clean directory for consumption by kubectl commands.
-
-6. These steps in the configuration file do the following:
-    - Set a timeout on the deployment of 60 seconds, giving the deployment time to successfully start the application's container before timing out.
-    - Watch the status of the deployment until all pods have come up. If the timeout is hit this will immediately return a non zero exit code and cause the pipeline run to fail. This means your pipeline will succeed only if your application has been successfully deployed, otherwise it fails
-
-7. Switch to Wercker to create the the following parameters under the Environment tab.
+4. Repeat the inclusion of parameters : 
     - Key: ``OKE_MASTER`` (provided by the instructor)
     - Key: ``OKE_TOKEN`` (provided by the instructor)
 
+![Wercker Define Environment Variables](resources/images/wercker-env-03.png)
+
+5. To review the script when a deploy to kubernetes is performed, switch to GitHub and open the ```wercker.yml``` file.
+
+6. Scroll to the ```deploy-to-kubernetes``` area. The first step is that all the .template extensions are removed. Then it will move all the Kubernetes configuration files to a clean directory for consumption by kubectl commands.
+
+7. These steps in the configuration file do the following:
+    - Set a timeout on the deployment of 60 seconds, giving the deployment time to successfully start the application's container before timing out.
+    - Watch the status of the deployment until all pods have come up. If the timeout is hit this will immediately return a non zero exit code and cause the pipeline run to fail. This means your pipeline will succeed only if your application has been successfully deployed, otherwise it fails
+
+![Wercker Build Automatic](resources/images/wercker-autobuild-01.png)
 
 ## Add Workflow to Pipeline in Wercker Application
 
-To deploy the OCI container to Kubernetes, you need to create a Deploy-to-Kubernetes workflow in your Wercker application.
+To deploy the OCI Engine for Kubernetes (OKE), you need to create a ```Deploy-to-Kubernetes``` workflow in your Wercker application.
 
-1. Switch to your Wercker application and click the **Workflows** tab.
+1. Switch to your Wercker application and on the **Workflows** tab. Click Add *New Pipeline*.
 
-2. Click Add *New Pipeline*.
+![Wercker Workflow New Pipeline](resources/images/wercker-new-pipeline.png)
 
-3. Enter **deploy-to-kubernetes** for both Name and YML Pipeline name and click **Create**.
+2. Enter **deploy-to-kubernetes** for both Name and YML Pipeline name and click **Create**.
 
-4. Click the **Workflows** tab.
+![Wercker Workflow Config Pipeline](resources/images/wercker-config-pipeline.png)
 
-5. In the Workflow Editor, click the `' + '`, to create a new pipeline chain after the build. Select **deploy-to-kubernetes** for Execute pipeline and click **Add**.
+3. Click the **Workflows** tab.
 
-6. The new change in the workflow was created successfully. In the next section, you deploy the OCI image to kubernetes.
+4. In the Workflow Editor, click the `' + '`, to create a new pipeline chain after the build. Select **deploy-to-kubernetes** for Execute pipeline and click **Add**.
+
+![Wercker Workflow Exec Pipeline](resources/images/wercker-exec-pipeline-config.png)
+
+5. The new change in the workflow was created successfully. In the next section, you deploy the OCI image to kubernetes.
 
 ## Deploy the OCI Container to OCI Container Engine for Kubernetes
 
