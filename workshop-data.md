@@ -6,7 +6,7 @@
 | ---------------------------- | --------------------------------------------------------- |
 | Helidon Microservice Project | *[Helidon Microservice](https://github.com/pasimoes/helidon-quickstart-se)* |
 | OCIR_USERNAME                | `<tenancy name>/<oke_username>`                           |
-| OCIR_PASSWORD                | `<oke_password>`                                          |
+| OCIR_PASSWORD                | `<ok_user_auth_token>`                                    |
 | OCIR_REPO                    | `<region-code>.ocir.io/<tenancy name>/<registry name>`    |
 | OCIR_ADDR                    | `https://<region-code>.ocir.io/v2`                        | 
 | OKE_IMAGESECRET              | `<oke imgsecret>`                                         |
